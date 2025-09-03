@@ -1,104 +1,385 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy - UADD</title>
   <style>
-    body {
-      font-family: Arial, sans-serif;
-      background-color: #f5f6f8;
+    * {
       margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      min-height: 100vh;
       padding: 20px;
       color: #333;
-    }
-    .container {
-      max-width: 900px;
-      margin: auto;
-      background: #fff;
-      padding: 25px;
-      border-radius: 8px;
-      box-shadow: 0px 2px 8px rgba(0,0,0,0.15);
-    }
-    h1, h2 {
-      border-bottom: 2px solid #0073e6;
-      padding-bottom: 6px;
-      margin-top: 25px;
-      color: #222;
-    }
-    p {
       line-height: 1.6;
-      margin: 15px 0;
     }
+
+    .container {
+      max-width: 950px;
+      margin: 20px auto;
+      background: #fff;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 0 20px 60px rgba(0,0,0,0.1);
+      position: relative;
+      overflow: hidden;
+      animation: fadeInUp 0.8s ease-out;
+    }
+
+    .container::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 5px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1, #96ceb4);
+      animation: gradientMove 3s ease-in-out infinite alternate;
+    }
+
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(50px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    @keyframes gradientMove {
+      0% { transform: translateX(-100%); }
+      100% { transform: translateX(100%); }
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      text-align: center;
+      margin-bottom: 30px;
+      position: relative;
+      animation: titleGlow 2s ease-in-out infinite alternate;
+    }
+
+    @keyframes titleGlow {
+      from { filter: brightness(1); }
+      to { filter: brightness(1.2); }
+    }
+
+    h1::after {
+      content: '';
+      display: block;
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4);
+      margin: 15px auto;
+      border-radius: 2px;
+      animation: underlineExpand 1s ease-out 0.5s both;
+    }
+
+    @keyframes underlineExpand {
+      from { width: 0; }
+      to { width: 80px; }
+    }
+
+    h2 {
+      font-size: 1.6rem;
+      color: #2c3e50;
+      margin: 35px 0 20px 0;
+      padding: 15px 0 15px 20px;
+      border-left: 5px solid #3498db;
+      background: linear-gradient(90deg, rgba(52, 152, 219, 0.1), transparent);
+      border-radius: 0 10px 10px 0;
+      position: relative;
+      transition: all 0.3s ease;
+      cursor: default;
+    }
+
+    h2:hover {
+      background: linear-gradient(90deg, rgba(52, 152, 219, 0.2), transparent);
+      transform: translateX(10px);
+      border-left-color: #e74c3c;
+    }
+
+    h2::before {
+      content: '📄';
+      margin-right: 10px;
+      font-size: 1.2rem;
+    }
+
+    p {
+      margin: 20px 0;
+      text-align: justify;
+      font-size: 1rem;
+      color: #444;
+      transition: color 0.3s ease;
+      padding: 10px 0;
+    }
+
+    p:hover {
+      color: #2c3e50;
+    }
+
     ul {
-      margin-left: 20px;
+      margin: 20px 0 20px 40px;
+      list-style: none;
     }
+
+    li {
+      margin-bottom: 12px;
+      padding: 10px 15px;
+      background: linear-gradient(90deg, rgba(46, 204, 113, 0.1), transparent);
+      border-radius: 10px;
+      border-left: 4px solid #2ecc71;
+      position: relative;
+      transition: all 0.3s ease;
+      animation: slideIn 0.6s ease-out forwards;
+      opacity: 0;
+      transform: translateX(-20px);
+    }
+
+    li:nth-child(1) { animation-delay: 0.1s; }
+    li:nth-child(2) { animation-delay: 0.2s; }
+    li:nth-child(3) { animation-delay: 0.3s; }
+    li:nth-child(4) { animation-delay: 0.4s; }
+    li:nth-child(5) { animation-delay: 0.5s; }
+    li:nth-child(6) { animation-delay: 0.6s; }
+
+    @keyframes slideIn {
+      to {
+        opacity: 1;
+        transform: translateX(0);
+      }
+    }
+
+    li:hover {
+      background: linear-gradient(90deg, rgba(46, 204, 113, 0.2), transparent);
+      transform: translateX(10px);
+      border-left-color: #e67e22;
+    }
+
+    li::before {
+      content: '✓';
+      color: #2ecc71;
+      font-weight: bold;
+      margin-right: 10px;
+      font-size: 1.1rem;
+    }
+
     .note {
-      background: #eef7ff;
-      border-left: 4px solid #0073e6;
-      padding: 12px;
-      margin-bottom: 20px;
+      background: linear-gradient(135deg, #74b9ff, #0984e3);
+      color: white;
+      border: none;
+      border-radius: 15px;
+      padding: 20px;
+      margin: 25px 0;
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 10px 30px rgba(116, 185, 255, 0.3);
+      animation: pulseGlow 3s ease-in-out infinite alternate;
     }
+
+    @keyframes pulseGlow {
+      from { box-shadow: 0 10px 30px rgba(116, 185, 255, 0.3); }
+      to { box-shadow: 0 15px 40px rgba(116, 185, 255, 0.5); }
+    }
+
+    .note::before {
+      content: '💡';
+      font-size: 1.5rem;
+      margin-right: 10px;
+    }
+
     a {
-      color: #0073e6;
+      color: #3498db;
       text-decoration: none;
+      font-weight: 600;
+      padding: 5px 10px;
+      border-radius: 20px;
+      transition: all 0.3s ease;
+      position: relative;
+      display: inline-block;
     }
+
     a:hover {
-      text-decoration: underline;
+      background: #3498db;
+      color: white;
+      transform: translateY(-2px);
+      box-shadow: 0 8px 20px rgba(52, 152, 219, 0.3);
+    }
+
+    /* Floating Animation */
+    .container:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 25px 70px rgba(0,0,0,0.15);
+    }
+
+    /* Loading Animation */
+    @keyframes rotate {
+      from { transform: rotate(0deg); }
+      to { transform: rotate(360deg); }
+    }
+
+    /* Scroll Progress Bar */
+    .progress-bar {
+      position: fixed;
+      top: 0;
+      left: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #ff6b6b, #4ecdc4, #45b7d1);
+      z-index: 1000;
+      transition: width 0.3s ease;
+    }
+
+    /* Contact Section Special Styling */
+    h2:last-of-type {
+      background: linear-gradient(90deg, rgba(231, 76, 60, 0.1), transparent);
+      border-left-color: #e74c3c;
+    }
+
+    h2:last-of-type::before {
+      content: '📧';
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .container {
+        margin: 10px;
+        padding: 25px;
+      }
+      
+      h1 {
+        font-size: 2rem;
+      }
+      
+      h2 {
+        font-size: 1.3rem;
+      }
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+      position: fixed;
+      bottom: 30px;
+      right: 30px;
+      background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+      color: white;
+      border: none;
+      border-radius: 50%;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      transition: all 0.3s ease;
+      opacity: 0;
+      visibility: hidden;
+    }
+
+    .back-to-top.show {
+      opacity: 1;
+      visibility: visible;
+    }
+
+    .back-to-top:hover {
+      transform: translateY(-3px);
+      box-shadow: 0 10px 25px rgba(102, 126, 234, 0.4);
     }
   </style>
 </head>
 <body>
+  <div class="progress-bar" id="progressBar"></div>
+  
   <div class="container">
     <h1>Privacy Policy</h1>
 
-    <div class="note">
-      <p><strong>Note:</strong> This is an official copy of the Privacy Policy of Urban Administration & Development Department (UADD). The original version is available at <a href="https://enagarpalika.mp.gov.in/privacypolicy" target="_blank">https://enagarpalika.mp.gov.in/privacypolicy</a> (accessible only within India).</p>
-    </div>
-
     <p>Urban Administration & Development Department (UADD) does not collect personal information about individuals except when such individuals specifically provide such information on a voluntary basis, such as personal information for subscription/registration.</p>
 
-    <p>Personal information on individual users will not be sold or otherwise transferred to unaffiliated third parties without the approval of the user at the time of collection. At points of data collection, the user will have the opportunity to indicate whether he or she would like to "opt out" of receiving promotional, informational, or service-related offerings from UADD and/or third parties.</p>
+    <p>Personal information on individual users will not be sold or otherwise transferred to unaffiliated third parties without the approval of the user at the time of collection. At such points of data collection, the user will have the opportunity to indicate whether he or she would like to "opt out" of receiving promotional and/or information and/or services and offerings from UADD and/or third parties.</p>
 
-    <p>UADD reserves the right to perform statistical analyses of user behavior and to use such analyses to measure interest in and characteristics of various areas of the site, and to inform advertisers of such information. UADD will provide only aggregate data from these analyses to third parties. Also, users should be aware that UADD may sometimes permit third parties to offer subscription and/or registration-based services through UADD's site. UADD is not responsible for, and users should check, the privacy policies of such third parties before providing personally identifiable information.</p>
+    <p>UADD reserves the right to perform statistical analyses of user behavior and to use the analyses to measure interest in and characteristics of various areas of the site and to inform the advertisers of such information. UADD will provide only aggregated data from these analyses to third parties. Also, users should be aware that UADD may sometimes permit third parties to offer subscriptions and/or registration-based services through UADD's site. UADD is not responsible for and users should check the applicable privacy policies of such parties when third parties and any action or policy of such parties for disclosure of such parties when providing personally identifiable information.</p>
 
     <h2>Log Data</h2>
-    <p>The UADD may gather certain information about a user, including but not limited to Internet Protocol (IP) addresses, domain names, operating system, date and/or time of visit, and pages visited. The UADD makes no active attempt to link such information with the identity of individuals visiting this mobile application unless required by law, or for the purpose of investigating, preventing, managing, recording, or responding to unlawful, unauthorized, fraudulent, or other unethical conduct, or any law enforcement purposes.</p>
+    <p>The UADD may gather certain information about a user, including but not limited to, Internet protocol (IP) addresses, domain names, operating system, the date and/or time of the visit, the pages visited etc. The UADD makes no active attempts to link such information with the identity of individuals visiting this mobile application unless so required as per law; or for purposes of investigating, preventing, managing, recording or responding to unlawful, unauthorized, fraudulent or other unethical conduct, or for any other law enforcement purposes.</p>
 
     <h2>Service Providers</h2>
-    <p>We may employ third-party companies and individuals for the following reasons:</p>
+    <p>We may employ third-party companies and individuals due to the following reasons.</p>
     <ul>
       <li>To facilitate our Service.</li>
       <li>To provide the Service on our behalf.</li>
-      <li>To perform Service-related functions.</li>
-      <li>To assist us in analyzing how our Service is used.</li>
+      <li>To perform Service-related services or.</li>
+      <li>To assist us in analysing how our Service is used.</li>
     </ul>
-    <p>We want to inform users of this Service that these third parties may have access to their personal information, but solely to perform tasks assigned to them on our behalf. They are obligated not to disclose or use the information for any other purpose.</p>
+    <p>We want to inform users of this Service that these third parties have access to their Personal Information. The reason is to perform the tasks assigned to them on our behalf. However, they are obligated not to disclose or use the information for any other purpose.</p>
 
     <h2>Security</h2>
-    <p>The UADD implements reasonable security practices and measures to safeguard information provided through this mobile application against loss, misuse, unauthorized access or disclosure, alteration, or destruction. Users are responsible for maintaining the secrecy and security of their login credentials. If users disclose their credentials to third parties, the Department shall not be responsible for any loss, damages (including, but not limited to, loss of business projects, loss of profits, or any other damages) or consequences arising from the use of, or inability to use, the mobile application or any of its contents.</p>
+    <p>The UADD implements reasonable security practices and measures to safeguard information provided to this mobile application against loss, misuse, unauthorized access or disclosure, alteration, or destruction. Users are solely responsible for maintaining the secrecy, confidentiality and security of their credentials to login and access this mobile application. If users disclose their credentials or other details to third parties, the Department shall not be responsible for any loss, damages (including, without limitation, damages for loss of business projects, loss of profits or any other damage in contract, tort or otherwise whether direct, indirect or consequential) or other repercussions arising from the use of or inability to use the mobile application, or any of its contents, or from any action taken or refrained from being taken.</p>
 
     <h2>Policy Changes</h2>
-    <p>UADD reserves the right to change this policy at any time by notifying users about the availability of a new privacy statement. Visitors are encouraged to check this site periodically to stay informed about the current privacy and security guidelines. This statement and related policies do not create any contractual or legal rights in favor of any party.</p>
+    <p>UADD reserves the right to change this policy at any time by notifying users of the existence of a new privacy statement. Visitors are encouraged to check this site periodically to stay informed on current privacy and security guidelines. This statement and the policies outlined herein are not intended to and do not create any contractual or other legal rights in or on behalf of any party.</p>
 
     <h2>Copyright Policy</h2>
-    <p>The use of this Mobile Application does not provide users with ownership, rights, or interest in any intellectual property contained within the app or its content.</p>
+    <p>The use of this Mobile Application does not give any user the ownership, interest or right in or of any intellectual property rights contained therein or the content thereof.</p>
 
     <h2>User Responsibility</h2>
     <p>You must:</p>
     <ul>
-      <li>Be a natural person to access or seek to access the MP Nagar Palika mobile app.</li>
-      <li>Not access or attempt to access (either directly or indirectly) any other person's MP Nagar Palika mobile app account, unless duly authorized.</li>
-      <li>Not permit any other person to use your login credentials and must keep them confidential at all times, as you are responsible for any activity conducted using your credentials.</li>
-      <li>Immediately report to the Help Desk if you suspect that the security of your account has been compromised, e.g., your account credentials have been lost or stolen.</li>
-      <li>Ensure that your personal details are accurate and up to date.</li>
-      <li>Use this mobile app and your account only for lawful purposes and in a manner that does not infringe upon the rights of, or restrict or inhibit, the use of this mobile app by any third party. This includes avoiding conduct that is unlawful, harassing, distressing, or offensive, including the transmission of obscene content or disruption of services.</li>
+      <li>Be a natural person to access or seek to access MP Nagar Palika mobile app.</li>
+      <li>Not access or link to or seek to access or link to (either directly or indirectly) any other person's MP Nagar Palika mobile app account, unless authorized.</li>
+      <li>Not permit any other person to use your login credentials; keep your login credentials, at all times and not disclose it to anyone else, since you are responsible for any account using your credentials.</li>
+      <li>Report the Help desk immediately if you suspect that the security of your account may have been compromised e.g.: your account credentials have been lost or stolen.</li>
+      <li>Ensure your personal details are accurate and up to date.</li>
+      <li>You must use this mobile app and your account only for lawful purposes and in a manner that does not infringe the rights of or restrict or inhibit the use of this mobile app by any third party. This includes conduct which is unlawful, or which may harass or cause distress or inconvenience to any person, the transmission of obscene or offensive content or disruption to this mobile app.</li>
     </ul>
 
     <h2>Contact Us</h2>
-    <p>If you have any questions or suggestions about our Privacy Policy, please contact us at:  
-      <a href="mailto:support@mpurban.gov.in">support@mpurban.gov.in</a>
-    </p>
+    <p>If you have any questions or suggestions about our Privacy Policy, do not hesitate to contact us at: <a href="mailto:support@mpurban.gov.in">support@mpurban.gov.in</a></p>
   </div>
+
+  <button class="back-to-top" id="backToTop" onclick="scrollToTop()">↑</button>
+
+  <script>
+    // Progress Bar Animation
+    window.addEventListener('scroll', () => {
+      const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+      const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+      const scrolled = (winScroll / height) * 100;
+      document.getElementById('progressBar').style.width = scrolled + '%';
+      
+      // Show/Hide Back to Top Button
+      const backToTop = document.getElementById('backToTop');
+      if (winScroll > 300) {
+        backToTop.classList.add('show');
+      } else {
+        backToTop.classList.remove('show');
+      }
+    });
+
+    function scrollToTop() {
+      window.scrollTo({
+        top: 0,
+        behavior: 'smooth'
+      });
+    }
+
+    // Add smooth scroll for better UX
+    document.querySelectorAll('h2').forEach(header => {
+      header.addEventListener('click', () => {
+        header.style.transform = 'scale(1.02)';
+        setTimeout(() => {
+          header.style.transform = 'translateX(10px)';
+        }, 100);
+      });
+    });
+  </script>
 </body>
 </html>
